@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="To-do-lister"
+run/main_scene="res://Scenes/Main.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=1080
-window/size/viewport_height=1500
+window/size/viewport_width=540
+window/size/viewport_height=750
 
 [rendering]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bqn7ri4r0li4d"]
 
 [ext_resource type="Script" path="res://Scenes/Control.gd" id="1_8ens4"]
-[ext_resource type="Texture2D" uid="uid://bf6eodow2k2eh" path="res://assets/OK.png" id="1_djlnf"]
+[ext_resource type="Texture2D" uid="uid://khqpg7n7h6nf" path="res://assets/OK.png" id="1_djlnf"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -14,9 +14,11 @@ script = ExtResource("1_8ens4")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = -1
+anchor_right = 1.961
+anchor_bottom = 1.98
+offset_right = -518.94
+offset_bottom = -735.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -29,20 +31,24 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ItemList" type="ItemList" parent="Panel/VBoxContainer"]
-custom_minimum_size = Vector2(1080, 1350)
+custom_minimum_size = Vector2(540, 675)
 layout_mode = 2
+size_flags_horizontal = 0
 size_flags_vertical = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
-custom_minimum_size = Vector2(1080, 150)
 layout_mode = 2
 
 [node name="LineEdit" type="LineEdit" parent="Panel/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(930, 150)
+custom_minimum_size = Vector2(465, 75)
 layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="TextureButton" type="TextureButton" parent="Panel/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
 texture_normal = ExtResource("1_djlnf")
+
+[connection signal="item_activated" from="Panel/VBoxContainer/ItemList" to="." method="_on_item_list_item_activated"]
+[connection signal="item_selected" from="Panel/VBoxContainer/ItemList" to="." method="_on_item_list_item_selected"]
+[connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/TextureButton" to="." method="_on_TextureButton_pressed"]
